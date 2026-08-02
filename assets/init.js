@@ -47,6 +47,31 @@ function boot() {
     tick();
     setInterval(tick, 30000);
   });
+  const MODE_KEY = 'pm:dark';
+  const applyMode = (dark) => {
+    document.querySelectorAll('.wf-page').forEach((p) => {
+      if (dark) {
+        if (!p.dataset.lightStyle) p.dataset.lightStyle = p.getAttribute('style') || '';
+        const v = (n) => getComputedStyle(p).getPropertyValue(n).trim();
+        p.style.background = v('--wfm-bg');
+        p.style.color = v('--wfm-text');
+        p.style.setProperty('--wf-bg', v('--wfm-bg'));
+        p.style.setProperty('--wf-text', v('--wfm-text'));
+        p.style.setProperty('--wf-surface', v('--wfm-surface'));
+        p.style.setProperty('--wf-line', v('--wfm-line'));
+        p.style.setProperty('--wf-muted', v('--wfm-muted'));
+      } else if (p.dataset.lightStyle !== undefined) {
+        p.setAttribute('style', p.dataset.lightStyle);
+      }
+      p.classList.toggle('is-dark', dark);
+    });
+    try { localStorage.setItem(MODE_KEY, dark ? '1' : '0'); } catch { /* 시크릿 모드 등 */ }
+  };
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-mode-toggle]')) return;
+    applyMode(!document.querySelector('.wf-page')?.classList.contains('is-dark'));
+  });
+  try { if (localStorage.getItem(MODE_KEY) === '1') applyMode(true); } catch { /* 저장 불가 환경 */ }
   reveal('[data-fx~="reveal"]');
   preview('[data-fx~="preview"]');
   spotlight('[data-fx~="spotlight"]');
