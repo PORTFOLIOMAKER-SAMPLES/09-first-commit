@@ -1,6 +1,6 @@
-# 윤도현 — 프론트엔드 주니어 포트폴리오
+# 최유나 · 신입 백엔드 개발자
 
-Portfolio Maker로 만든 정적 사이트입니다. **빌드 도구가 필요 없습니다.**
+포메(Portfolio Maker)로 만든 정적 사이트입니다. **빌드 도구가 필요 없습니다.**
 
 ## 열기
 
@@ -15,8 +15,10 @@ python -m http.server 5500
 
 ## 페이지
 
-- `index.html` — Home
-- `contact.html` — Contact
+- `index.html` — 홈
+- `프로젝트.html` — 프로젝트
+- `교육.html` — 교육
+- `연락처.html` — 연락처
 
 ## 구조
 
@@ -24,7 +26,7 @@ python -m http.server 5500
 index.html 등        페이지마다 한 장
 assets/site.css      레이아웃 · 테마 · 파트 스타일
 assets/init.js       3D 효과 마운트
-effects/             효과 팩 (_core · scroll-reveal · hover-preview · spotlight · model-showcase · tilt-card · magnetic-button · smooth-scroll)
+effects/             효과 팩 (_core · model-showcase)
 ```
 
 ## 고치는 법
