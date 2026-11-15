@@ -12,6 +12,7 @@ python -m http.server 5500
 
 → <http://localhost:5500/index.html>
 
+3D 효과 없이 내보냈으므로 `index.html`을 더블클릭해도 열립니다.
 
 ## 페이지
 
@@ -25,8 +26,7 @@ python -m http.server 5500
 ```
 index.html 등        페이지마다 한 장
 assets/site.css      레이아웃 · 테마 · 파트 스타일
-assets/init.js       3D 효과 마운트
-effects/             효과 팩 (_core)
+
 ```
 
 ## 고치는 법
